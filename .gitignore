@@ -1,0 +1,10 @@
+bin/
+build/
+data/
+disc/
+rom/
+
+spyro2.xml
+spyro2x2.lba
+
+env.mk

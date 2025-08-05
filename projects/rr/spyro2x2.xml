@@ -1,0 +1,34 @@
+<iso_project image_name="build/disc/spyro2x2.bin" cue_sheet="build/disc/spyro2x2.cue">
+    <track type="data" xa_edc="true" new_type="false">
+        <identifiers system="PLAYSTATION" application="PLAYSTATION" publisher="SCEA" creation_date="1999101110083100+36"/>
+        <license file="build/rom/license_data.dat"/>
+        <default_attributes gmt_offs="36" xa_attrib="32" xa_perm="1365" xa_gid="0" xa_uid="0"/>
+        <directory_tree>
+            <file name="SYSTEM.CNF" source="build/rom/SYSTEM.CNF" type="data"/>
+            <file name="SCUS_944.25" source="build/rom/SCUS_944.25" type="data"/>
+            <file name="WAD.WAD" source="build/rom/WAD.WAD" offs="500" type="data"/>
+            <file name="SPEECH.STR" source="build/rom/SPEECH.STR" offs="90000" type="mixed"/>
+            <dir name="KART" source="build/rom/KART">
+                <file name="KART.HWL" source="build/rom/KART/KART.HWL" type="data"/>
+                <file name="KARTDCH.BIN" source="build/rom/KART/KARTDCH.BIN" type="data"/>
+                <file name="KARTENG.BIN" source="build/rom/KART/KARTENG.BIN" type="data"/>
+                <file name="KARTFRN.BIN" source="build/rom/KART/KARTFRN.BIN" type="data"/>
+                <file name="KARTGRM.BIN" source="build/rom/KART/KARTGRM.BIN" type="data"/>
+                <file name="KARTITL.BIN" source="build/rom/KART/KARTITL.BIN" type="data"/>
+                <file name="KARTJPN.BIN" source="build/rom/KART/KARTJPN.BIN" type="data"/>
+                <file name="PSX.EXE" source="build/rom/KART/PSX.EXE" type="data"/>
+                <file name="SAMPLE1.VRM" source="build/rom/KART/SAMPLE1.VRM" type="data"/>
+                <file name="SAMPLE2.VRM" source="build/rom/KART/SAMPLE2.VRM" type="data"/>
+                <file name="SAMPLE3.VRM" source="build/rom/KART/SAMPLE3.VRM" type="data"/>
+                <file name="SAMPLE4.VRM" source="build/rom/KART/SAMPLE4.VRM" type="data"/>
+                <file name="SAMPLE5.VRM" source="build/rom/KART/SAMPLE5.VRM" type="data"/>
+                <file name="SAMPLER.BIG" source="build/rom/KART/SAMPLER.BIG" type="data"/>
+                <dir name="XA" source="build/rom/KART/XA">
+                    <file name="S00.XA" source="build/rom/KART/XA/S00.XA" offs="228389" type="mixed"/>
+                </dir>
+            </dir>
+            <file name="SPYRO2.TRD" source="build/rom/SPYRO2.TRD" offs="229989" type="data"/>
+            <dummy sectors="150" type="0"/>
+        </directory_tree>
+    </track>
+</iso_project>

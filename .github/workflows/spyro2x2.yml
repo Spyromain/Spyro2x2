@@ -1,0 +1,74 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: dockcross/linux-mipsel-lts:20250801-86f66d2
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mkpsxiso
+        run: |
+          curl --location 'https://github.com/Lameguy64/mkpsxiso/releases/download/v2.10/mkpsxiso-2.10-Linux.deb' > mkpsxiso.deb
+          dpkg --install mkpsxiso.deb
+          rm mkpsxiso.deb
+
+      - name: Install xdelta3
+        run: |
+          apt-get install --yes xdelta3
+
+      - name: GG - Download ROM
+        env:
+          SP2X2_ROM_LINK: ${{ secrets.SP2X2_ROM_LINK_GG }}
+        working-directory: projects/gg
+        run: |
+          mkdir --parents disc
+          curl --location "$SP2X2_ROM_LINK" > disc/spyro2.bin.gz
+          gunzip disc/spyro2.bin.gz
+
+      - name: GG - Make
+        working-directory: projects/gg
+        run: |
+          make setup
+          make
+
+      - name: GG - Create xdelta patch
+        working-directory: projects/gg
+        run: |
+          xdelta3 -e -s disc/spyro2.bin build/disc/spyro2x2.bin build/spyro2x2_gg.xdelta
+
+      - name: GG - Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spyro2x2_gg.xdelta
+          path: |
+            projects/gg/build/spyro2x2_gg.xdelta
+
+      - name: RR - Download ROM
+        env:
+          SP2X2_ROM_LINK: ${{ secrets.SP2X2_ROM_LINK_RR }}
+        working-directory: projects/rr
+        run: |
+          mkdir --parents disc
+          curl --location "$SP2X2_ROM_LINK" > disc/spyro2.bin.gz
+          gunzip disc/spyro2.bin.gz
+
+      - name: RR - Make
+        working-directory: projects/rr
+        run: |
+          make setup
+          make
+
+      - name: RR - Create xdelta patch
+        working-directory: projects/rr
+        run: |
+          xdelta3 -e -s disc/spyro2.bin build/disc/spyro2x2.bin build/spyro2x2_rr.xdelta
+
+      - name: RR - Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spyro2x2_rr.xdelta
+          path: |
+            projects/rr/build/spyro2x2_rr.xdelta
