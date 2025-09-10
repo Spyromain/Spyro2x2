@@ -72,6 +72,7 @@ Feel free to [open an issue](https://github.com/Spyromain/Spyro2x2/issues/new) f
 
 -   [Unofficial Spyro Scope](https://github.com/FranklyGD/Spyro-Scope)
 -   [PSX Modding Toolchain](https://github.com/mateusfavarin/psx-modding-toolchain)
+-   [no$psx emulator](https://problemkaputt.de/psx.htm)
 -   [mkpsxiso](https://github.com/Lameguy64/mkpsxiso)
 -   [grumpycoder Windows binaries](https://static.grumpycoder.net/pixel/mips/)
 -   [xdelta-wasm](https://github.com/kotcrab/xdelta-wasm)
